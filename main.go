@@ -28,7 +28,7 @@ func main() {
 		fmt.Println("error:", err)
 	}
 
-	n := getRandomNumbers(*num, 1, len(p))
+	n := getRandomNumbers(*num, 0, len(p))
 	for _, i := range n {
 		fmt.Printf("Número sorteado: %d Nome:%s %s\n", i, p[i].Nome, p[i].Sobrenome)
 	}
