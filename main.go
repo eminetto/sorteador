@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/jszwec/csvutil"
 	"math/rand"
 	"os"
 	"time"
+
+	"github.com/jszwec/csvutil"
 )
 
 type Participant struct {
@@ -30,9 +31,8 @@ func main() {
 
 	n := getRandomNumbers(*num, 0, len(p))
 	for _, i := range n {
-		fmt.Printf("Número sorteado: %d Nome:%s %s\n", i, p[i].Nome, p[i].Sobrenome)
+		fmt.Printf("Número sorteado: %d Nome:%s %s Email: %s\n", i, p[i].Nome, p[i].Sobrenome, p[i].Email)
 	}
-
 }
 
 func getRandomNumbers(qtd, min, max int) []int {
