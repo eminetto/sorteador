@@ -10,7 +10,7 @@ import (
 	"github.com/jszwec/csvutil"
 )
 
-type Participant struct {
+type participant struct {
 	Nome      string `csv:"Nome"`
 	Sobrenome string `csv:"Sobrenome"`
 	Email     string `csv:"Email"`
@@ -24,7 +24,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	var p []Participant
+	var p []participant
 	if err := csvutil.Unmarshal(dat, &p); err != nil {
 		fmt.Println("error:", err)
 	}
@@ -38,8 +38,8 @@ func main() {
 func getRandomNumbers(qtd, min, max int) []int {
 	var r []int
 	for i := 0; i < qtd; i++ {
-		rand.Seed(time.Now().UnixNano())
-		r = append(r, rand.Intn(max-min+1)+min)
+		rd := rand.New(rand.NewSource(time.Now().UnixNano()))
+		r = append(r, rd.Intn(max-min+1)+min)
 	}
 	return r
 }
